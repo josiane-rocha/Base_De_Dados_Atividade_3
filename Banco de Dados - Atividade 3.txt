@@ -1,0 +1,275 @@
+CREATE DATABASE  IF NOT EXISTS `base_de_dados_atividade_3` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `base_de_dados_atividade_3`;
+-- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
+--
+-- Host: localhost    Database: base_de_dados_atividade_3
+-- ------------------------------------------------------
+-- Server version	8.0.25
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `cidadeestado`
+--
+
+DROP TABLE IF EXISTS `cidadeestado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cidadeestado` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `cidade` varchar(45) NOT NULL,
+  `estado` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cidadeestado`
+--
+
+LOCK TABLES `cidadeestado` WRITE;
+/*!40000 ALTER TABLE `cidadeestado` DISABLE KEYS */;
+INSERT INTO `cidadeestado` VALUES (1,'Itapevi','SP'),(2,'Jandira','SP'),(3,'Barueri','SP'),(4,'Osasco','SP'),(5,'Ipiranga','SP'),(6,'Niterói','RJ'),(7,'Copacabana','RJ'),(8,'Goiana','PE'),(9,'Recife','PE'),(10,'Amontada','CE'),(11,'Salvador','CE'),(12,'Curitiba','PR'),(13,'Gramados','RS'),(14,'Florianópolis','SC'),(15,'Natal','RN');
+/*!40000 ALTER TABLE `cidadeestado` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clientes`
+--
+
+DROP TABLE IF EXISTS `clientes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `clientes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(45) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `whatsapp` bigint DEFAULT NULL,
+  `senha` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clientes`
+--
+
+LOCK TABLES `clientes` WRITE;
+/*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
+INSERT INTO `clientes` VALUES (1,'natye-oliver@hotmail.com','Natalina Rocha',11975273571,'natye'),(2,'jozye.oliver@gmail.com','Josiane Oliveira',11966367222,'jozye'),(3,'danilo.als@yahoo.com.br','Danilo Augusto Lima',11988752735,'dan123'),(4,'rose.regis@gmail.com','Rosineide Régis',11966789456,'bequinha'),(5,'jn.oliveira@gmail.com','José Nivaldo de Oliveira',81977579980,'ssjnd'),(6,'irene.martins@gmail.com','Irene Martins',81978908767,'rosa'),(7,'marcia.keijela@gmail.com','Márcia Keijila',85988776645,'marciano'),(8,'marcos.keneds@gmail.com','Marcos Keneds',85988906754,'marquinhos'),(9,'israel.silva@hotmail.com','Israel da Silva',48923678900,'jorael'),(10,'agatha.marques@hotmail.com','Ágatha Marques',55988789065,'sonho'),(11,'neythan.marques@gmail.com','Neythan Marques',43978652345,'sonhoduplicado'),(12,'maxsuell.silva@gmail.com','Maxsuel Silva',84955678900,'segredo'),(13,'sophia.stella@gmail.com','Sophia Stella Oliveira',11988776655,'princesa'),(14,'mauricio.lira@gmail.com','Maurício Lira',21980786544,'pessoa'),(15,'ana.paula@gmail.com','Ana Paula Mendes',21978654321,'please');
+/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `departamentos`
+--
+
+DROP TABLE IF EXISTS `departamentos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `departamentos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `departamentos`
+--
+
+LOCK TABLES `departamentos` WRITE;
+/*!40000 ALTER TABLE `departamentos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `departamentos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `enderecos`
+--
+
+DROP TABLE IF EXISTS `enderecos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `enderecos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `tipo` varchar(45) NOT NULL,
+  `tipologradouro` varchar(45) DEFAULT NULL,
+  `logradouro` varchar(45) DEFAULT NULL,
+  `numero` varchar(45) DEFAULT NULL,
+  `bairro` varchar(45) DEFAULT NULL,
+  `complemento` varchar(45) DEFAULT NULL,
+  `cep` varchar(45) DEFAULT NULL,
+  `cidadeestado` int NOT NULL,
+  `cliente` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `cidadeestado_idx` (`cidadeestado`),
+  KEY `clientes_idx` (`cliente`),
+  CONSTRAINT `cidadeestado` FOREIGN KEY (`cidadeestado`) REFERENCES `cidadeestado` (`id`),
+  CONSTRAINT `fkcliente` FOREIGN KEY (`cliente`) REFERENCES `clientes` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enderecos`
+--
+
+LOCK TABLES `enderecos` WRITE;
+/*!40000 ALTER TABLE `enderecos` DISABLE KEYS */;
+INSERT INTO `enderecos` VALUES (1,'Residencial','Rua','Passarinho','604','Briquet','Casa 2','06624010',1,1),(2,'Residencial','Rua','Imirim','722','Fátima','Casa 1','06545329',2,2),(3,'Residencial','Rua','Luiza','24','Brotinho','Casa 3','08976510',3,3),(4,'Residencial','Avenida','Yojiro','4384','Menk','Casa 2','06624568',4,4),(5,'Residencial','Viela','Tic Toc','34','Brooklin','Casa 2','06624123',5,5),(6,'Residencial','Viela','Flores','25','Copacana','Casa 3','06541038',6,6),(7,'Comercial','Estrada','Alvorada','90','Vidigal','Casa 2','06789012',7,7),(8,'Comercial','Avenida','Salvador','21','Lapa','Casa 3','06789021',8,8),(9,'Residencial','Estrada','Amontada','27','Cecília','Casa 3','06789014',9,9),(10,'Residencial','Rua','Passe','28','Itapipoca','Casa 3','07789099',10,10),(11,'Residencial','Avenida','Rosa','32','Moscou','Casa 2','06624013',11,11),(12,'Residencial','Avenida','Calma','17','Lips','Casa 5','06655020',12,12),(13,'Residencial','Rua','Taipas','02','Lilás','Casa 6','06624067',13,13),(14,'Residencial','Rua','Passos','05','Mant','Casa 7','08877665',14,14),(15,'Residencial','Rua','Itamaré','06','Nulo','Casa 20','06624080',15,15);
+/*!40000 ALTER TABLE `enderecos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `estoque`
+--
+
+DROP TABLE IF EXISTS `estoque`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `estoque` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `produto` int NOT NULL,
+  `quantidade` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fkproduto_idx` (`produto`),
+  CONSTRAINT `fkproduto` FOREIGN KEY (`produto`) REFERENCES `produtos` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `estoque`
+--
+
+LOCK TABLES `estoque` WRITE;
+/*!40000 ALTER TABLE `estoque` DISABLE KEYS */;
+/*!40000 ALTER TABLE `estoque` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pedidos`
+--
+
+DROP TABLE IF EXISTS `pedidos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pedidos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `codigo` int NOT NULL,
+  `data` datetime NOT NULL,
+  `pedidosstatus` int NOT NULL,
+  `clientes` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fkpedidosstatus_idx` (`pedidosstatus`),
+  KEY `fkclientes_idx` (`clientes`),
+  CONSTRAINT `fkclientes` FOREIGN KEY (`clientes`) REFERENCES `clientes` (`id`),
+  CONSTRAINT `fkpedidosstatus` FOREIGN KEY (`pedidosstatus`) REFERENCES `pedidosstatus` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pedidos`
+--
+
+LOCK TABLES `pedidos` WRITE;
+/*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pedidosstatus`
+--
+
+DROP TABLE IF EXISTS `pedidosstatus`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pedidosstatus` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `status` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pedidosstatus`
+--
+
+LOCK TABLES `pedidosstatus` WRITE;
+/*!40000 ALTER TABLE `pedidosstatus` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pedidosstatus` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `produtos`
+--
+
+DROP TABLE IF EXISTS `produtos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `produtos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `codigo` int NOT NULL,
+  `descricao` varchar(45) NOT NULL,
+  `preco` int NOT NULL,
+  `disponivel` int NOT NULL,
+  `destaque` int NOT NULL,
+  `fkdepartamento` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fkdepartamento_idx` (`fkdepartamento`),
+  CONSTRAINT `fkdepartamento` FOREIGN KEY (`fkdepartamento`) REFERENCES `departamentos` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `produtos`
+--
+
+LOCK TABLES `produtos` WRITE;
+/*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `produtospedidos`
+--
+
+DROP TABLE IF EXISTS `produtospedidos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `produtospedidos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `precounitario` int NOT NULL,
+  `descricao` varchar(45) NOT NULL,
+  `quantidade` int NOT NULL,
+  `precototal` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `produtospedidos`
+--
+
+LOCK TABLES `produtospedidos` WRITE;
+/*!40000 ALTER TABLE `produtospedidos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `produtospedidos` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-05-23 21:11:12
